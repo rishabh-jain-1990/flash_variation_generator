@@ -1,0 +1,262 @@
+[
+  {
+    "id": "v-001",
+    "title": "Classic Flash",
+    "complexity": "easy",
+    "tags": ["Classic", "Beginner-Friendly"],
+    "description": "The original 3-card Flash. Each player is dealt three cards face down. The highest-ranking hand wins. No wildcards, no twists—pure skill and bluffing.",
+    "visual_cues": {
+      "highlight_cards": [],
+      "layout_type": "standard_grid",
+      "overlay_icon": "🎴",
+      "bg_theme": "from-emerald-900 to-slate-900"
+    }
+  },
+  {
+    "id": "v-002",
+    "title": "Muflis (Lowball)",
+    "complexity": "easy",
+    "tags": ["Classic", "Inverted", "Beginner-Friendly"],
+    "description": "The lowest hand wins instead of the highest. All standard hand rankings are completely inverted. A 2-3-5 offsuit becomes the best possible hand while a Trail of Aces becomes the worst.",
+    "visual_cues": {
+      "highlight_cards": ["2", "3", "5"],
+      "layout_type": "standard_grid",
+      "overlay_icon": "🔄",
+      "bg_theme": "from-blue-900 to-slate-900"
+    }
+  },
+  {
+    "id": "v-003",
+    "title": "AK47 Jackpot",
+    "complexity": "hard",
+    "tags": ["Wildcard", "High-Volatility", "Classic"],
+    "description": "All Aces, Kings, 4s, and 7s are universal wildcards. These cards can represent any suit or rank to form the best possible hand. If you hold multiple jokers, they combine sequentially.",
+    "visual_cues": {
+      "highlight_cards": ["A", "K", "4", "7"],
+      "layout_type": "wildcard_banner",
+      "overlay_icon": "🃏",
+      "bg_theme": "from-purple-950 to-slate-900"
+    }
+  },
+  {
+    "id": "v-004",
+    "title": "Sudden Death Discard",
+    "complexity": "intermediate",
+    "tags": ["Discard", "Strategic", "Multi-Stage"],
+    "description": "Players are dealt 4 cards and must discard one before the showdown. Choose wisely—the discarded card is revealed to all players, giving opponents critical information about your hand.",
+    "visual_cues": {
+      "highlight_cards": [],
+      "layout_type": "split_hand",
+      "overlay_icon": "💀",
+      "bg_theme": "from-red-950 to-slate-900"
+    }
+  },
+  {
+    "id": "v-005",
+    "title": "Community Pot",
+    "complexity": "intermediate",
+    "tags": ["Community", "Shared-Card", "Strategic"],
+    "description": "Each player receives 2 private cards, and 1 community card is placed face-up in the center, shared by all players. Build your best 3-card hand using your 2 private cards plus the community card.",
+    "visual_cues": {
+      "highlight_cards": [],
+      "layout_type": "community_mat",
+      "overlay_icon": "🏛️",
+      "bg_theme": "from-amber-900 to-slate-900"
+    }
+  },
+  {
+    "id": "v-006",
+    "title": "Red & Black",
+    "complexity": "easy",
+    "tags": ["Color-Based", "Beginner-Friendly", "Bonus"],
+    "description": "If all three of your cards are the same color (all red or all black), your hand receives a bonus ranking boost—equivalent to moving up one tier in the hand hierarchy.",
+    "visual_cues": {
+      "highlight_cards": ["♥", "♦", "♠", "♣"],
+      "layout_type": "standard_grid",
+      "overlay_icon": "🎨",
+      "bg_theme": "from-rose-900 to-slate-900"
+    }
+  },
+  {
+    "id": "v-007",
+    "title": "King's Court",
+    "complexity": "intermediate",
+    "tags": ["Wildcard", "Face-Cards", "Strategic"],
+    "description": "All Kings are wild and can substitute for any card. Additionally, any hand containing a natural King (used as its face value) beats an equivalent hand using a King as a wildcard.",
+    "visual_cues": {
+      "highlight_cards": ["K"],
+      "layout_type": "wildcard_banner",
+      "overlay_icon": "👑",
+      "bg_theme": "from-yellow-900 to-slate-900"
+    }
+  },
+  {
+    "id": "v-008",
+    "title": "Blind Swap",
+    "complexity": "hard",
+    "tags": ["Blind", "Swap", "High-Volatility", "Multi-Stage"],
+    "description": "After the initial deal, each player must pass one card face-down to their left neighbor and receive one from the right—without looking at either card first. High-risk, high-reward chaos.",
+    "visual_cues": {
+      "highlight_cards": [],
+      "layout_type": "split_hand",
+      "overlay_icon": "🔀",
+      "bg_theme": "from-violet-950 to-slate-900"
+    }
+  },
+  {
+    "id": "v-009",
+    "title": "Trio Tornado",
+    "complexity": "hard",
+    "tags": ["High-Volatility", "Bonus", "Trail"],
+    "description": "If any player achieves a Trail (three of a kind), the entire round resets and all players must double the pot. The trail holder keeps their hand while everyone else is re-dealt.",
+    "visual_cues": {
+      "highlight_cards": [],
+      "layout_type": "standard_grid",
+      "overlay_icon": "🌪️",
+      "bg_theme": "from-cyan-950 to-slate-900"
+    }
+  },
+  {
+    "id": "v-010",
+    "title": "One-Eyed Jack",
+    "complexity": "intermediate",
+    "tags": ["Wildcard", "Classic", "Face-Cards"],
+    "description": "The Jack of Spades and Jack of Hearts (the 'one-eyed' Jacks) are wildcards. All other Jacks remain normal. This creates an interesting asymmetry where only 2 of the 4 Jacks carry power.",
+    "visual_cues": {
+      "highlight_cards": ["J♠", "J♥"],
+      "layout_type": "wildcard_banner",
+      "overlay_icon": "👁️",
+      "bg_theme": "from-indigo-950 to-slate-900"
+    }
+  },
+  {
+    "id": "v-011",
+    "title": "Lowest Card Wild",
+    "complexity": "intermediate",
+    "tags": ["Wildcard", "Dynamic", "Strategic"],
+    "description": "In each player's hand, their lowest-ranked card automatically becomes wild. This means every player has a guaranteed wildcard, but its value depends on the hand they're dealt.",
+    "visual_cues": {
+      "highlight_cards": ["2", "3", "4", "5"],
+      "layout_type": "standard_grid",
+      "overlay_icon": "⬇️",
+      "bg_theme": "from-teal-900 to-slate-900"
+    }
+  },
+  {
+    "id": "v-012",
+    "title": "Double Exposure",
+    "complexity": "hard",
+    "tags": ["Exposed", "Strategic", "Information"],
+    "description": "Each player must reveal one of their three cards face-up before betting begins. Players choose which card to expose, creating a complex meta-game of bluffing and deduction.",
+    "visual_cues": {
+      "highlight_cards": [],
+      "layout_type": "split_hand",
+      "overlay_icon": "👀",
+      "bg_theme": "from-orange-950 to-slate-900"
+    }
+  },
+  {
+    "id": "v-013",
+    "title": "Bust Card",
+    "complexity": "intermediate",
+    "tags": ["Penalty", "Strategic", "Twist"],
+    "description": "Before the deal, one random card rank is declared the 'bust' rank. Any player holding a card of that rank must pay a penalty into the pot or fold immediately. Surviving players continue as normal.",
+    "visual_cues": {
+      "highlight_cards": [],
+      "layout_type": "standard_grid",
+      "overlay_icon": "💥",
+      "bg_theme": "from-red-900 to-orange-950"
+    }
+  },
+  {
+    "id": "v-014",
+    "title": "Stud Flash",
+    "complexity": "intermediate",
+    "tags": ["Stud", "Progressive", "Multi-Stage"],
+    "description": "Cards are dealt one at a time with a betting round after each card. First card face-down, second face-up, third face-down. Players can see partial information about opponents' hands throughout.",
+    "visual_cues": {
+      "highlight_cards": [],
+      "layout_type": "split_hand",
+      "overlay_icon": "📊",
+      "bg_theme": "from-slate-800 to-zinc-900"
+    }
+  },
+  {
+    "id": "v-015",
+    "title": "Lucky 7s",
+    "complexity": "easy",
+    "tags": ["Wildcard", "Beginner-Friendly", "Lucky"],
+    "description": "All four 7s in the deck are wild. Simple, classic, and easy to remember. Any 7 can substitute for any other card to form the strongest possible hand.",
+    "visual_cues": {
+      "highlight_cards": ["7"],
+      "layout_type": "wildcard_banner",
+      "overlay_icon": "🍀",
+      "bg_theme": "from-green-900 to-emerald-950"
+    }
+  },
+  {
+    "id": "v-016",
+    "title": "Mirror Match",
+    "complexity": "hard",
+    "tags": ["Duel", "High-Volatility", "Unique"],
+    "description": "Two players are dealt identical hands from two separate decks. They must bet without knowing they hold the same cards. The winner is determined by who bets more aggressively—pure bluffing warfare.",
+    "visual_cues": {
+      "highlight_cards": [],
+      "layout_type": "standard_grid",
+      "overlay_icon": "🪞",
+      "bg_theme": "from-fuchsia-950 to-slate-900"
+    }
+  },
+  {
+    "id": "v-017",
+    "title": "Auction Flash",
+    "complexity": "hard",
+    "tags": ["Auction", "Economy", "Strategic", "Multi-Stage"],
+    "description": "After the initial deal, 3 extra cards are placed face-up. Players can auction for the right to swap one of their cards with a face-up card. Highest bidder swaps first, then the next, and so on.",
+    "visual_cues": {
+      "highlight_cards": [],
+      "layout_type": "community_mat",
+      "overlay_icon": "🔨",
+      "bg_theme": "from-amber-950 to-yellow-950"
+    }
+  },
+  {
+    "id": "v-018",
+    "title": "Pair Penalty",
+    "complexity": "easy",
+    "tags": ["Penalty", "Inverted", "Beginner-Friendly"],
+    "description": "Any hand containing a pair is automatically ranked below a high-card hand. This inverts the usual advantage of pairs and makes players dread matching cards.",
+    "visual_cues": {
+      "highlight_cards": [],
+      "layout_type": "standard_grid",
+      "overlay_icon": "⛔",
+      "bg_theme": "from-stone-800 to-slate-900"
+    }
+  },
+  {
+    "id": "v-019",
+    "title": "Joker's Edge",
+    "complexity": "intermediate",
+    "tags": ["Wildcard", "Community", "Shared-Card"],
+    "description": "Two jokers are added to the deck. If a player is dealt a joker, it's wild. If a joker appears as a community card, all players benefit from it equally, adding a shared wildcard to every hand.",
+    "visual_cues": {
+      "highlight_cards": [],
+      "layout_type": "community_mat",
+      "overlay_icon": "🎪",
+      "bg_theme": "from-pink-950 to-purple-950"
+    }
+  },
+  {
+    "id": "v-020",
+    "title": "Sudden Reveal",
+    "complexity": "intermediate",
+    "tags": ["Blind", "Twist", "Progressive"],
+    "description": "Players bet without looking at their cards initially. After a set number of betting rounds, all players simultaneously reveal their hands. No peeking allowed—commitment is absolute.",
+    "visual_cues": {
+      "highlight_cards": [],
+      "layout_type": "standard_grid",
+      "overlay_icon": "🎭",
+      "bg_theme": "from-sky-950 to-slate-900"
+    }
+  }
+]
