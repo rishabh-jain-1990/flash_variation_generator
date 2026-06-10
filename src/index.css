@@ -78,19 +78,368 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.felt-surface {
-  background-color: #eef2f0;
-  background-image:
+@keyframes ambient-pulse-intense {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.75; }
+}
+
+@keyframes ambient-shimmer-playful {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.85; }
+}
+
+.ambient-shell {
+  position: relative;
+  color: var(--ambient-text);
+  background-color: var(--ambient-bg);
+  background-image: var(--ambient-bg-image);
+}
+
+.ambient-shell::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+.ambient-shell[data-ambient='intense']::before {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 50%, rgba(220, 38, 38, 0.18), transparent);
+  opacity: 1;
+  animation: ambient-pulse-intense 3.5s ease-in-out infinite;
+}
+
+.ambient-shell[data-ambient='playful']::before {
+  background:
+    radial-gradient(ellipse 60% 40% at 80% 10%, rgba(251, 191, 36, 0.2), transparent),
+    radial-gradient(ellipse 50% 40% at 10% 90%, rgba(45, 212, 191, 0.2), transparent);
+  opacity: 1;
+  animation: ambient-shimmer-playful 5s ease-in-out infinite;
+}
+
+.ambient-shell[data-ambient='default'] {
+  --ambient-bg: #eef2f0;
+  --ambient-bg-image:
     radial-gradient(ellipse 100% 60% at 50% -10%, rgba(16, 185, 129, 0.1), transparent),
     radial-gradient(ellipse 70% 40% at 0% 100%, rgba(5, 150, 105, 0.06), transparent),
     radial-gradient(ellipse 70% 40% at 100% 100%, rgba(5, 150, 105, 0.06), transparent);
+  --ambient-text: #0f172a;
+  --ambient-text-muted: #64748b;
+  --ambient-text-faint: #94a3b8;
+  --ambient-header-bg: rgba(255, 255, 255, 0.8);
+  --ambient-header-border: #e2e8f0;
+  --ambient-nav-idle: #64748b;
+  --ambient-nav-idle-hover: #f1f5f9;
+  --ambient-nav-active-bg: #0f172a;
+  --ambient-nav-active-text: #ffffff;
+  --ambient-surface: #f1f5f9;
+  --ambient-surface-hover: #e2e8f0;
+  --ambient-surface-muted: #cbd5e1;
+  --ambient-accent-from: #f59e0b;
+  --ambient-accent-to: #f97316;
+  --ambient-accent-shadow: rgba(245, 158, 11, 0.3);
+  --ambient-tag-idle: #f1f5f9;
+  --ambient-tag-idle-text: #475569;
+  --ambient-tag-idle-hover: #e2e8f0;
+  --ambient-tag-active: #f59e0b;
+  --ambient-tag-active-text: #ffffff;
+  --ambient-btn-secondary: #f1f5f9;
+  --ambient-btn-secondary-text: #475569;
+  --ambient-btn-secondary-hover: #e2e8f0;
+  --ambient-btn-fav-active: #fef3c7;
+  --ambient-btn-fav-active-text: #92400e;
+  --ambient-icon-btn: #f1f5f9;
+  --ambient-icon-btn-hover: #e2e8f0;
+  --ambient-badge: #cbd5e1;
+  --ambient-badge-text: #334155;
+  --ambient-badge-active: #fbbf24;
+  --ambient-badge-active-text: #78350f;
+  --ambient-shimmer-surface: #e2e8f0;
+  --ambient-shimmer-pulse: #cbd5e1;
 }
 
-.dark .felt-surface {
-  background-color: #0c1220;
-  background-image:
+.dark .ambient-shell[data-ambient='default'] {
+  --ambient-bg: #0c1220;
+  --ambient-bg-image:
     radial-gradient(ellipse 100% 60% at 50% -10%, rgba(16, 185, 129, 0.07), transparent),
     radial-gradient(ellipse 80% 50% at 50% 50%, rgba(6, 78, 59, 0.15), transparent),
     radial-gradient(ellipse 70% 40% at 0% 100%, rgba(5, 150, 105, 0.05), transparent),
     radial-gradient(ellipse 70% 40% at 100% 100%, rgba(5, 150, 105, 0.05), transparent);
+  --ambient-text: #f8fafc;
+  --ambient-text-muted: #94a3b8;
+  --ambient-text-faint: #64748b;
+  --ambient-header-bg: rgba(15, 23, 42, 0.8);
+  --ambient-header-border: #1e293b;
+  --ambient-nav-idle: #94a3b8;
+  --ambient-nav-idle-hover: #1e293b;
+  --ambient-nav-active-bg: #ffffff;
+  --ambient-nav-active-text: #0f172a;
+  --ambient-surface: #1e293b;
+  --ambient-surface-hover: #334155;
+  --ambient-surface-muted: #475569;
+  --ambient-tag-idle: #1e293b;
+  --ambient-tag-idle-text: #94a3b8;
+  --ambient-tag-idle-hover: #334155;
+  --ambient-btn-secondary: #1e293b;
+  --ambient-btn-secondary-text: #94a3b8;
+  --ambient-btn-secondary-hover: #334155;
+  --ambient-btn-fav-active: rgba(120, 53, 15, 0.4);
+  --ambient-btn-fav-active-text: #fcd34d;
+  --ambient-icon-btn: #1e293b;
+  --ambient-icon-btn-hover: #334155;
+  --ambient-badge: #475569;
+  --ambient-badge-text: #cbd5e1;
+}
+
+.ambient-shell[data-ambient='intense'] {
+  --ambient-bg: #120303;
+  --ambient-bg-image:
+    radial-gradient(ellipse 120% 70% at 50% -5%, rgba(220, 38, 38, 0.35), transparent),
+    radial-gradient(ellipse 80% 55% at 0% 100%, rgba(127, 29, 29, 0.45), transparent),
+    radial-gradient(ellipse 80% 55% at 100% 100%, rgba(127, 29, 29, 0.45), transparent),
+    radial-gradient(ellipse 60% 40% at 50% 50%, rgba(69, 10, 10, 0.5), transparent);
+  --ambient-text: #fecaca;
+  --ambient-text-muted: #fca5a5;
+  --ambient-text-faint: #f87171;
+  --ambient-header-bg: rgba(30, 8, 8, 0.92);
+  --ambient-header-border: rgba(220, 38, 38, 0.35);
+  --ambient-nav-idle: #fca5a5;
+  --ambient-nav-idle-hover: rgba(127, 29, 29, 0.55);
+  --ambient-nav-active-bg: #dc2626;
+  --ambient-nav-active-text: #ffffff;
+  --ambient-surface: rgba(69, 10, 10, 0.65);
+  --ambient-surface-hover: rgba(127, 29, 29, 0.55);
+  --ambient-surface-muted: rgba(153, 27, 27, 0.7);
+  --ambient-accent-from: #ef4444;
+  --ambient-accent-to: #991b1b;
+  --ambient-accent-shadow: rgba(239, 68, 68, 0.45);
+  --ambient-tag-idle: rgba(69, 10, 10, 0.8);
+  --ambient-tag-idle-text: #fca5a5;
+  --ambient-tag-idle-hover: rgba(127, 29, 29, 0.6);
+  --ambient-tag-active: #dc2626;
+  --ambient-tag-active-text: #ffffff;
+  --ambient-btn-secondary: rgba(69, 10, 10, 0.8);
+  --ambient-btn-secondary-text: #fca5a5;
+  --ambient-btn-secondary-hover: rgba(127, 29, 29, 0.6);
+  --ambient-btn-fav-active: rgba(127, 29, 29, 0.7);
+  --ambient-btn-fav-active-text: #fecaca;
+  --ambient-icon-btn: rgba(69, 10, 10, 0.8);
+  --ambient-icon-btn-hover: rgba(127, 29, 29, 0.6);
+  --ambient-badge: rgba(153, 27, 27, 0.8);
+  --ambient-badge-text: #fecaca;
+  --ambient-badge-active: #fbbf24;
+  --ambient-badge-active-text: #78350f;
+  --ambient-shimmer-surface: rgba(69, 10, 10, 0.8);
+  --ambient-shimmer-pulse: rgba(127, 29, 29, 0.7);
+}
+
+.ambient-shell[data-ambient='playful'] {
+  --ambient-bg: #ecfdf8;
+  --ambient-bg-image:
+    radial-gradient(ellipse 100% 70% at 15% 0%, rgba(45, 212, 191, 0.4), transparent),
+    radial-gradient(ellipse 80% 55% at 95% 15%, rgba(251, 191, 36, 0.35), transparent),
+    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(56, 189, 248, 0.3), transparent),
+    radial-gradient(ellipse 50% 40% at 70% 60%, rgba(244, 114, 182, 0.15), transparent);
+  --ambient-text: #134e4a;
+  --ambient-text-muted: #0f766e;
+  --ambient-text-faint: #14b8a6;
+  --ambient-header-bg: rgba(255, 255, 255, 0.88);
+  --ambient-header-border: rgba(45, 212, 191, 0.35);
+  --ambient-nav-idle: #0d9488;
+  --ambient-nav-idle-hover: rgba(204, 251, 241, 0.8);
+  --ambient-nav-active-bg: #14b8a6;
+  --ambient-nav-active-text: #ffffff;
+  --ambient-surface: rgba(204, 251, 241, 0.65);
+  --ambient-surface-hover: rgba(153, 246, 228, 0.8);
+  --ambient-surface-muted: rgba(94, 234, 212, 0.5);
+  --ambient-accent-from: #2dd4bf;
+  --ambient-accent-to: #f59e0b;
+  --ambient-accent-shadow: rgba(45, 212, 191, 0.4);
+  --ambient-tag-idle: rgba(204, 251, 241, 0.9);
+  --ambient-tag-idle-text: #0f766e;
+  --ambient-tag-idle-hover: rgba(153, 246, 228, 0.9);
+  --ambient-tag-active: #14b8a6;
+  --ambient-tag-active-text: #ffffff;
+  --ambient-btn-secondary: rgba(204, 251, 241, 0.9);
+  --ambient-btn-secondary-text: #0f766e;
+  --ambient-btn-secondary-hover: rgba(153, 246, 228, 0.9);
+  --ambient-btn-fav-active: #fef3c7;
+  --ambient-btn-fav-active-text: #b45309;
+  --ambient-icon-btn: rgba(204, 251, 241, 0.9);
+  --ambient-icon-btn-hover: rgba(153, 246, 228, 0.9);
+  --ambient-badge: rgba(94, 234, 212, 0.6);
+  --ambient-badge-text: #115e59;
+  --ambient-badge-active: #fbbf24;
+  --ambient-badge-active-text: #78350f;
+  --ambient-shimmer-surface: rgba(153, 246, 228, 0.6);
+  --ambient-shimmer-pulse: rgba(94, 234, 212, 0.5);
+}
+
+.ambient-shell[data-ambient='neutral'] {
+  --ambient-bg: #faf5ef;
+  --ambient-bg-image:
+    radial-gradient(ellipse 100% 65% at 50% -10%, rgba(245, 158, 11, 0.15), transparent),
+    radial-gradient(ellipse 70% 45% at 0% 100%, rgba(217, 119, 6, 0.08), transparent),
+    radial-gradient(ellipse 70% 45% at 100% 100%, rgba(217, 119, 6, 0.08), transparent);
+  --ambient-text: #292524;
+  --ambient-text-muted: #78716c;
+  --ambient-text-faint: #a8a29e;
+  --ambient-header-bg: rgba(255, 251, 235, 0.9);
+  --ambient-header-border: rgba(245, 158, 11, 0.25);
+  --ambient-nav-idle: #78716c;
+  --ambient-nav-idle-hover: #fef3c7;
+  --ambient-nav-active-bg: #d97706;
+  --ambient-nav-active-text: #ffffff;
+  --ambient-surface: #fef3c7;
+  --ambient-surface-hover: #fde68a;
+  --ambient-surface-muted: #fcd34d;
+  --ambient-accent-from: #f59e0b;
+  --ambient-accent-to: #d97706;
+  --ambient-accent-shadow: rgba(245, 158, 11, 0.35);
+  --ambient-tag-idle: #fef3c7;
+  --ambient-tag-idle-text: #92400e;
+  --ambient-tag-idle-hover: #fde68a;
+  --ambient-tag-active: #d97706;
+  --ambient-tag-active-text: #ffffff;
+  --ambient-btn-secondary: #fef3c7;
+  --ambient-btn-secondary-text: #92400e;
+  --ambient-btn-secondary-hover: #fde68a;
+  --ambient-btn-fav-active: #fde68a;
+  --ambient-btn-fav-active-text: #92400e;
+  --ambient-icon-btn: #fef3c7;
+  --ambient-icon-btn-hover: #fde68a;
+  --ambient-badge: #fcd34d;
+  --ambient-badge-text: #78350f;
+  --ambient-badge-active: #f59e0b;
+  --ambient-badge-active-text: #ffffff;
+  --ambient-shimmer-surface: #fde68a;
+  --ambient-shimmer-pulse: #fcd34d;
+}
+
+.dark .ambient-shell[data-ambient='neutral'] {
+  --ambient-bg: #1c1410;
+  --ambient-bg-image:
+    radial-gradient(ellipse 100% 65% at 50% -10%, rgba(245, 158, 11, 0.12), transparent),
+    radial-gradient(ellipse 80% 50% at 50% 50%, rgba(120, 53, 15, 0.2), transparent);
+  --ambient-text: #fef3c7;
+  --ambient-text-muted: #d6d3d1;
+  --ambient-text-faint: #a8a29e;
+  --ambient-header-bg: rgba(28, 20, 16, 0.92);
+  --ambient-header-border: rgba(245, 158, 11, 0.2);
+  --ambient-nav-idle: #a8a29e;
+  --ambient-nav-idle-hover: rgba(120, 53, 15, 0.5);
+  --ambient-nav-active-bg: #d97706;
+  --ambient-nav-active-text: #ffffff;
+  --ambient-surface: rgba(69, 45, 10, 0.6);
+  --ambient-surface-hover: rgba(120, 53, 15, 0.5);
+  --ambient-surface-muted: rgba(146, 64, 14, 0.6);
+  --ambient-tag-idle: rgba(69, 45, 10, 0.7);
+  --ambient-tag-idle-text: #fcd34d;
+  --ambient-tag-idle-hover: rgba(120, 53, 15, 0.5);
+  --ambient-btn-secondary: rgba(69, 45, 10, 0.7);
+  --ambient-btn-secondary-text: #fcd34d;
+  --ambient-btn-secondary-hover: rgba(120, 53, 15, 0.5);
+  --ambient-btn-fav-active: rgba(120, 53, 15, 0.6);
+  --ambient-btn-fav-active-text: #fde68a;
+  --ambient-icon-btn: rgba(69, 45, 10, 0.7);
+  --ambient-icon-btn-hover: rgba(120, 53, 15, 0.5);
+  --ambient-badge: rgba(146, 64, 14, 0.7);
+  --ambient-badge-text: #fde68a;
+}
+
+.ambient-header {
+  background: var(--ambient-header-bg);
+  border-color: var(--ambient-header-border);
+  color: var(--ambient-text);
+}
+
+.ambient-title {
+  color: var(--ambient-text);
+}
+
+.ambient-text-muted {
+  color: var(--ambient-text-muted);
+}
+
+.ambient-text-faint {
+  color: var(--ambient-text-faint);
+}
+
+.ambient-nav-btn {
+  color: var(--ambient-nav-idle);
+}
+
+.ambient-nav-btn:hover {
+  background: var(--ambient-nav-idle-hover);
+}
+
+.ambient-nav-btn-active {
+  background: var(--ambient-nav-active-bg);
+  color: var(--ambient-nav-active-text);
+}
+
+.ambient-surface {
+  background: var(--ambient-surface);
+  color: var(--ambient-text);
+}
+
+.ambient-surface:hover {
+  background: var(--ambient-surface-hover);
+}
+
+.ambient-icon-btn {
+  background: var(--ambient-icon-btn);
+}
+
+.ambient-icon-btn:hover {
+  background: var(--ambient-icon-btn-hover);
+}
+
+.ambient-btn-primary {
+  background: linear-gradient(to right, var(--ambient-accent-from), var(--ambient-accent-to));
+  color: #ffffff;
+  box-shadow: 0 10px 25px var(--ambient-accent-shadow);
+}
+
+.ambient-btn-primary:hover {
+  box-shadow: 0 14px 30px var(--ambient-accent-shadow);
+}
+
+.ambient-btn-secondary {
+  background: var(--ambient-btn-secondary);
+  color: var(--ambient-btn-secondary-text);
+}
+
+.ambient-btn-secondary:hover {
+  background: var(--ambient-btn-secondary-hover);
+}
+
+.ambient-btn-fav-active {
+  background: var(--ambient-btn-fav-active);
+  color: var(--ambient-btn-fav-active-text);
+}
+
+.ambient-tag {
+  background: var(--ambient-tag-idle);
+  color: var(--ambient-tag-idle-text);
+}
+
+.ambient-tag:hover {
+  background: var(--ambient-tag-idle-hover);
+}
+
+.ambient-tag-active {
+  background: var(--ambient-tag-active);
+  color: var(--ambient-tag-active-text);
+}
+
+.ambient-shimmer {
+  background: var(--ambient-shimmer-surface);
+}
+
+.ambient-shimmer-pulse {
+  background: var(--ambient-shimmer-pulse);
 }

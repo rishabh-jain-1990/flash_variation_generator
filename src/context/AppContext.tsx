@@ -17,6 +17,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [viewMode, setViewMode] = useState<ViewMode>('generator');
   const [isGenerating, setIsGenerating] = useState(false);
   const [activeTagFilters, setActiveTagFilters] = useState<string[]>([]);
+  const [listFocusVariation, setListFocusVariation] = useState<Variation | null>(null);
   const [theme, setTheme] = useState<ThemeMode>(() => {
     const stored = localStorage.getItem('flash-theme');
     if (stored === 'light' || stored === 'dark') return stored;
@@ -33,6 +34,13 @@ export function AppProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     saveFavorites(favorites);
   }, [favorites]);
+
+  const handleSetViewMode = useCallback((mode: ViewMode) => {
+    setViewMode(mode);
+    if (mode !== 'history' && mode !== 'favorites') {
+      setListFocusVariation(null);
+    }
+  }, []);
 
   const generate = useCallback(() => {
     setIsGenerating(true);
@@ -93,15 +101,17 @@ export function AppProvider({ children }: { children: ReactNode }) {
         isGenerating,
         activeTagFilters,
         allTags,
+        listFocusVariation,
         generate,
         toggleFavorite: handleToggleFavorite,
         isFavorite: checkIsFavorite,
-        setViewMode,
+        setViewMode: handleSetViewMode,
         toggleTheme,
         toggleTagFilter,
         clearTagFilters,
         getFilteredHistory,
         getFilteredFavorites,
+        setListFocusVariation,
       }}
     >
       {children}

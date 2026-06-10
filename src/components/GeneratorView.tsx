@@ -21,14 +21,17 @@ export default function GeneratorView() {
           transition-all duration-300 cursor-pointer
           ${
             isGenerating
-              ? 'bg-slate-300 text-slate-500 dark:bg-slate-700 dark:text-slate-500 cursor-wait'
-              : 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 hover:scale-105 active:scale-95'
+              ? 'ambient-btn-secondary cursor-wait opacity-70'
+              : 'ambient-btn-primary hover:scale-105 active:scale-95'
           }
         `}
       >
         {isGenerating ? (
           <span className="flex items-center gap-2">
-            <span className="inline-block w-5 h-5 border-2 border-slate-400 border-t-transparent rounded-full animate-spin-slow" />
+            <span
+              className="inline-block w-5 h-5 border-2 border-t-transparent rounded-full animate-spin-slow"
+              style={{ borderColor: 'var(--ambient-text-muted)', borderTopColor: 'transparent' }}
+            />
             Shuffling...
           </span>
         ) : (
@@ -41,12 +44,12 @@ export default function GeneratorView() {
 
       {isGenerating && (
         <div className="w-full">
-          <div className="rounded-2xl bg-slate-200 dark:bg-slate-800 p-8 lg:p-12 animate-shimmer h-80 lg:h-96 flex items-center justify-center">
+          <div className="ambient-shimmer rounded-2xl p-8 lg:p-12 animate-shimmer h-80 lg:h-96 flex items-center justify-center">
             <div className="flex gap-3">
               {[0, 1, 2].map((i) => (
                 <div
                   key={i}
-                  className="w-20 h-28 lg:w-28 lg:h-40 rounded-xl bg-slate-300 dark:bg-slate-700 animate-pulse"
+                  className="ambient-shimmer-pulse w-20 h-28 lg:w-28 lg:h-40 rounded-xl animate-pulse"
                   style={{ animationDelay: `${i * 150}ms` }}
                 />
               ))}
@@ -65,10 +68,10 @@ export default function GeneratorView() {
       {!isGenerating && !currentVariation && (
         <div className="text-center mt-8 lg:mt-12 px-4 max-w-2xl">
           <p className="text-5xl lg:text-6xl mb-4">🃏</p>
-          <p className="text-slate-500 dark:text-slate-400 text-lg lg:text-xl">
+          <p className="ambient-text-muted text-lg lg:text-xl">
             Hit the button to discover a new Flash variant
           </p>
-          <p className="text-slate-400 dark:text-slate-500 text-sm lg:text-base mt-2">
+          <p className="ambient-text-faint text-sm lg:text-base mt-2">
             Each generation reveals a unique way to play
           </p>
         </div>
