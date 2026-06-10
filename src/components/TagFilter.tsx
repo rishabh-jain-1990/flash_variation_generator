@@ -6,13 +6,14 @@ export default function TagFilter() {
   return (
     <div className="w-full">
       <div className="flex items-center justify-between mb-2">
-        <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+        <span className="ambient-text-muted text-xs font-semibold uppercase tracking-wider">
           Filter by tags
         </span>
         {activeTagFilters.length > 0 && (
           <button
             onClick={clearTagFilters}
-            className="text-xs text-amber-500 hover:text-amber-400 font-medium cursor-pointer"
+            className="text-xs font-medium cursor-pointer transition-colors duration-300"
+            style={{ color: 'var(--ambient-accent-from)' }}
           >
             Clear all
           </button>
@@ -27,12 +28,8 @@ export default function TagFilter() {
               onClick={() => toggleTagFilter(tag)}
               className={`
                 text-[11px] font-medium px-2.5 py-1 rounded-full
-                transition-all duration-200 cursor-pointer
-                ${
-                  active
-                    ? 'bg-amber-500 text-white shadow-sm'
-                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700'
-                }
+                transition-all duration-300 cursor-pointer
+                ${active ? 'ambient-tag-active shadow-sm' : 'ambient-tag'}
               `}
             >
               {tag}

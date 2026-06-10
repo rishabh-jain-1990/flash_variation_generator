@@ -11,6 +11,7 @@ export interface AppState {
   isGenerating: boolean;
   activeTagFilters: string[];
   allTags: string[];
+  listFocusVariation: Variation | null;
 }
 
 export interface AppContextValue extends AppState {
@@ -23,6 +24,7 @@ export interface AppContextValue extends AppState {
   clearTagFilters: () => void;
   getFilteredHistory: () => Variation[];
   getFilteredFavorites: () => Variation[];
+  setListFocusVariation: (variation: Variation | null) => void;
 }
 
 export const AppContext = createContext<AppContextValue | null>(null);
