@@ -35,9 +35,9 @@ export default function VariationList({
   }
 
   return (
-    <div className="w-full flex flex-col gap-4">
+    <div className="w-full max-w-4xl mx-auto flex flex-col gap-4 lg:gap-5">
       <TagFilter />
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 lg:gap-4">
         {items.map((variation, index) => {
           const key = keyFn(variation, index);
           const isExpanded = expanded === key;
@@ -45,7 +45,7 @@ export default function VariationList({
             <div key={key}>
               <button
                 onClick={() => setExpanded(isExpanded ? null : key)}
-                className="w-full text-left px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-200 cursor-pointer"
+                className="w-full text-left px-4 py-3 lg:px-5 lg:py-4 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-200 cursor-pointer"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">

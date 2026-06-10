@@ -12,7 +12,7 @@ export default function GeneratorView() {
   };
 
   return (
-    <div className="flex flex-col items-center gap-6 w-full">
+    <div className="flex flex-col items-center gap-6 lg:gap-8 w-full max-w-4xl mx-auto">
       <button
         onClick={handleGenerate}
         disabled={isGenerating}
@@ -40,13 +40,13 @@ export default function GeneratorView() {
       </button>
 
       {isGenerating && (
-        <div className="w-full max-w-md mx-auto">
-          <div className="rounded-2xl bg-slate-200 dark:bg-slate-800 p-6 animate-shimmer h-80 flex items-center justify-center">
+        <div className="w-full">
+          <div className="rounded-2xl bg-slate-200 dark:bg-slate-800 p-8 lg:p-12 animate-shimmer h-80 lg:h-96 flex items-center justify-center">
             <div className="flex gap-3">
               {[0, 1, 2].map((i) => (
                 <div
                   key={i}
-                  className="w-20 h-28 rounded-xl bg-slate-300 dark:bg-slate-700 animate-pulse"
+                  className="w-20 h-28 lg:w-28 lg:h-40 rounded-xl bg-slate-300 dark:bg-slate-700 animate-pulse"
                   style={{ animationDelay: `${i * 150}ms` }}
                 />
               ))}
@@ -63,12 +63,12 @@ export default function GeneratorView() {
       )}
 
       {!isGenerating && !currentVariation && (
-        <div className="text-center mt-8 px-4">
-          <p className="text-4xl mb-4">🃏</p>
-          <p className="text-slate-500 dark:text-slate-400 text-lg">
+        <div className="text-center mt-8 lg:mt-12 px-4 max-w-2xl">
+          <p className="text-5xl lg:text-6xl mb-4">🃏</p>
+          <p className="text-slate-500 dark:text-slate-400 text-lg lg:text-xl">
             Hit the button to discover a new Flash variant
           </p>
-          <p className="text-slate-400 dark:text-slate-500 text-sm mt-2">
+          <p className="text-slate-400 dark:text-slate-500 text-sm lg:text-base mt-2">
             Each generation reveals a unique way to play
           </p>
         </div>

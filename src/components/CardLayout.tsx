@@ -48,7 +48,7 @@ function isCardHighlighted(
 function StandardGrid({ variation }: CardLayoutProps) {
   const cards = DEMO_HANDS.standard_grid;
   return (
-    <div className="flex items-center justify-center gap-3 sm:gap-4">
+    <div className="flex items-center justify-center gap-3 sm:gap-4 lg:gap-5">
       {cards.map((card, i) => (
         <ProceduralCard
           key={`${variation.id}-${i}`}
@@ -73,7 +73,7 @@ function WildcardBanner({ variation }: CardLayoutProps) {
   );
 
   return (
-    <div className="flex flex-col items-center gap-4">
+    <div className="flex flex-col items-center gap-4 lg:gap-5">
       {wildcardCards.length > 0 && (
         <div className="flex items-center gap-2">
           <span className="text-amber-400 text-xs font-semibold uppercase tracking-wider mr-1">
@@ -94,7 +94,7 @@ function WildcardBanner({ variation }: CardLayoutProps) {
         </div>
       )}
       <div className="w-24 border-t border-dashed border-slate-400 dark:border-slate-600" />
-      <div className="flex gap-3">
+      <div className="flex gap-3 lg:gap-4">
         {normalCards.map((card, i) => (
           <ProceduralCard
             key={`${variation.id}-norm-${i}`}
@@ -116,7 +116,7 @@ function CommunityMat({ variation }: CardLayoutProps) {
   const communityCard = cards[2];
 
   return (
-    <div className="flex flex-col items-center gap-4">
+    <div className="flex flex-col items-center gap-4 lg:gap-5">
       <div className="flex items-center gap-2">
         <span className="text-sky-400 text-xs font-semibold uppercase tracking-wider">
           Community
@@ -134,7 +134,7 @@ function CommunityMat({ variation }: CardLayoutProps) {
         <span className="text-emerald-400 text-xs font-semibold uppercase tracking-wider mr-1">
           Your Hand
         </span>
-        <div className="flex gap-3">
+        <div className="flex gap-3 lg:gap-4">
           {privateCards.map((card, i) => (
             <ProceduralCard
               key={`${variation.id}-priv-${i}`}
@@ -157,12 +157,12 @@ function SplitHand({ variation }: CardLayoutProps) {
   const lowTier = cards.slice(2);
 
   return (
-    <div className="flex flex-col items-center gap-3">
+    <div className="flex flex-col items-center gap-3 lg:gap-4">
       <div className="flex items-center gap-2">
         <span className="text-amber-400 text-xs font-semibold uppercase tracking-wider mr-1">
           Keep
         </span>
-        <div className="flex gap-3">
+        <div className="flex gap-3 lg:gap-4">
           {highTier.map((card, i) => (
             <ProceduralCard
               key={`${variation.id}-high-${i}`}
@@ -186,7 +186,7 @@ function SplitHand({ variation }: CardLayoutProps) {
         <span className="text-red-400 text-xs font-semibold uppercase tracking-wider mr-1">
           Discard
         </span>
-        <div className="flex gap-3 opacity-70">
+        <div className="flex gap-3 lg:gap-4 opacity-70">
           {lowTier.map((card, i) => (
             <ProceduralCard
               key={`${variation.id}-low-${i}`}

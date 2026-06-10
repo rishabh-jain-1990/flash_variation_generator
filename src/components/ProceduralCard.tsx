@@ -42,7 +42,7 @@ export default function ProceduralCard({
       key={`${variationId}-${index}`}
       className={`
         animate-card-enter relative flex flex-col items-center justify-between
-        w-20 h-28 sm:w-24 sm:h-34 rounded-xl p-2
+        w-20 h-28 sm:w-24 sm:h-32 lg:w-28 lg:h-40 rounded-xl p-2 lg:p-2.5
         bg-white dark:bg-slate-800 border-2 select-none
         transition-all duration-300
         ${
@@ -58,7 +58,7 @@ export default function ProceduralCard({
         <span className="ml-0.5 text-xs">{suitSymbol}</span>
       </div>
 
-      <div className={`text-3xl sm:text-4xl ${suitColor}`}>{suitSymbol}</div>
+      <div className={`text-3xl sm:text-4xl lg:text-5xl ${suitColor}`}>{suitSymbol}</div>
 
       <div className={`self-end text-sm font-bold rotate-180 ${suitColor}`}>
         {rank}
