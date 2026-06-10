@@ -13,11 +13,11 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-white/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800">
-      <div className="max-w-lg mx-auto px-4">
-        <div className="flex items-center justify-between py-3">
-          <div className="flex items-center gap-2">
-            <span className="text-xl">🃏</span>
-            <h1 className="text-base font-bold text-slate-900 dark:text-white tracking-tight">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between py-3 lg:py-4">
+          <div className="flex items-center gap-2 lg:gap-3">
+            <span className="text-xl lg:text-2xl">🃏</span>
+            <h1 className="text-base lg:text-lg font-bold text-slate-900 dark:text-white tracking-tight">
               Flash Variants
             </h1>
           </div>
@@ -30,7 +30,7 @@ export default function Header() {
           </button>
         </div>
 
-        <nav className="flex gap-1 pb-2 -mx-1">
+        <nav className="flex gap-1 lg:gap-2 pb-2 lg:pb-3 -mx-1">
           {NAV_ITEMS.map(({ mode, label, icon }) => {
             const active = viewMode === mode;
             const badge =
@@ -44,7 +44,7 @@ export default function Header() {
                 key={mode}
                 onClick={() => setViewMode(mode)}
                 className={`
-                  flex-1 flex items-center justify-center gap-1 px-2 py-2 rounded-xl text-xs font-semibold
+                  flex-1 flex items-center justify-center gap-1.5 px-2 py-2 lg:py-2.5 rounded-xl text-xs lg:text-sm font-semibold
                   transition-all duration-200 cursor-pointer relative
                   ${
                     active
@@ -54,7 +54,7 @@ export default function Header() {
                 `}
               >
                 <span className="text-sm">{icon}</span>
-                <span className="hidden sm:inline">{label}</span>
+                <span>{label}</span>
                 {badge > 0 && (
                   <span
                     className={`
